@@ -1,0 +1,14 @@
+*{
+    border: 1px solid black;
+}
+.board{
+    width:100vw;
+    height:50vh;
+    display:flex;
+    justify-content:space-around
+}
+.boardbox{
+    width:10vw;
+    height:10vw;
+    background-color:red
+}
