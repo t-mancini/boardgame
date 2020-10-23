@@ -12,3 +12,11 @@
     height:10vw;
     background-color:red
 }
+.player{
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50px;
+}
+#player-one{
+    background-color:black
+}
