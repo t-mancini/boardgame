@@ -6,11 +6,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <div class="board">
     <div class="boardbox" id="box-1">
         START
-        <div id="player-one" class="player"></div>
+       <!--  WORK WITH THIS ID AND CLASS BUT REMOVE IT LATER <div id="player-one" class="player"></div> -->
     </div>
     <div class="boardbox" id="box-2"></div>
     <div class="boardbox" id="box-3"></div>
@@ -22,14 +24,22 @@
     <div class="boardbox" id="box-9"></div>
     <div class="boardbox" id="box-10">GOAL</div>
 </div>
-<!-- <div class="initialize">
+
+<div class="initialize">
     <p>How many players are going to play?</p>
     <form id="how-many-players" method="get">
-        <input type="text" id="player-number" name="player-number" placeholder="select from 1 to 4 players"><br>
-        <input type="submit" value="start a new game">
+       <select name="players" id="player-number" >
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+<button type="button" id="selectPlayers">create players</button>
     </form>
-</div> -->
+</div>
+
 <button type="button" id="button">Click me to move</button>
+
 <script src="script.js"></script>
+
 </body>
 </html>
