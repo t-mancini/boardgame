@@ -4,7 +4,7 @@ rollTheDice= () => {
     let diceNumber = Math.round(Math.random()*5)+1
     console.log(diceNumber);
 }*/
-let boardboxArray = [
+let boardArray = [
     "box-1",
     "box-2",
     "box-3",
@@ -22,6 +22,6 @@ let newPosition =0
 document.getElementById("button").addEventListener("click", function movePlayer() {
     oldPosition = newPosition;
     newPosition++;
-    document.getElementById(boardboxArray[oldPosition]).removeChild
-    document.getElementById(boardboxArray[newPosition]).appendChild(/*what to write*/)
+    document.getElementById(boardArray[oldPosition]).removeChild(/*what to write here*/);
+    document.getElementById(boardArray[newPosition]).appendChild(/*what to write*/)
   });
