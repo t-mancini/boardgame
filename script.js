@@ -57,32 +57,19 @@ const players = [
     /*i need to delete the create player button, to prevent multiple clicks*/
    document.getElementById("selectPlayers").addEventListener("click", function(){
     switch (document.getElementById("player-number").value) {
-        case "2":
-            for (i = 0; i < 2; i++) {
+        case document.getElementById("player-number").value:
+            for (i = 0; i < document.getElementById("player-number").value; i++) {
                 playerOne = document.createElement("DIV");
                 playerOne.setAttribute("id", players[i].id);
                 playerOne.setAttribute("class", players[i].class);
                 document.getElementById(boardArray[0]).appendChild(playerOne);
                 document.getElementById(players[i].id).style.backgroundColor = players[i].color 
             }
+            document.getElementById("init").style.display = 'none';
         break;
-  case "3":
-    for (i = 0; i < 3; i++) {
-        playerOne = document.createElement("DIV");
-        playerOne.setAttribute("id", players[i].id);
-        playerOne.setAttribute("class", players[i].class);
-        document.getElementById(boardArray[0]).appendChild(playerOne);
-        document.getElementById(players[i].id).style.backgroundColor = players[i].color 
-    }
-    break;
-  case "4":
-    for (i = 0; i < 4; i++) {
-        playerOne = document.createElement("DIV");
-        playerOne.setAttribute("id", players[i].id);
-        playerOne.setAttribute("class", players[i].class);
-        document.getElementById(boardArray[0]).appendChild(playerOne);
-        document.getElementById(players[i].id).style.backgroundColor = players[i].color 
-    }
-    break;
     }
     });
+
+
+
+    /*i need a start again button when everything ends, and i need div id="init" to be shown again*/
