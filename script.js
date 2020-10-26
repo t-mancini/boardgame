@@ -22,6 +22,6 @@ let newPosition =0
 document.getElementById("button").addEventListener("click", function movePlayer() {
     oldPosition = newPosition;
     newPosition++;
-    document.getElementById(boardArray[oldPosition]).removeChild(/*what to write here*/);
-    document.getElementById(boardArray[newPosition]).appendChild(/*what to write*/)
+    document.getElementById(boardArray[oldPosition]).removeChild(document.getElementById("player-one"));
+    document.getElementById(boardArray[newPosition]).appendChild(/*what to write*/);
   });
