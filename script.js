@@ -1,7 +1,3 @@
-rollTheDice= () => {
-    return diceNumber = Math.round(Math.random()*5)+1;
-}
-
 let boardArray = [
     "box-1",
     "box-2",
@@ -15,18 +11,7 @@ let boardArray = [
     "box-10"
 ]
 
-let oldPosition =0
-let newPosition =0
-/*MAKE THIS WORK WITH THE NEW OBJECT. LOGIC TO CHANGE THE DICE THROUGH PLAYER.*/
-document.getElementById("button").addEventListener("click", function(){
-    oldPosition = newPosition;
-    newPosition=newPosition+rollTheDice();
-    document.getElementById(boardArray[newPosition]).appendChild(document.getElementById("player-one"));
-    document.getElementById(boardArray[oldPosition]).removeChild(document.getElementById("player-one"));
-    });
-
-
-const players = [
+let players = [
     {
         id: "player-one",
         class: "player",
@@ -53,9 +38,15 @@ const players = [
         color:"yellow"}
     ]
 
-    /*works, i will finish it after creating the players object}*/
-    /*i need to delete the create player button, to prevent multiple clicks*/
-   document.getElementById("selectPlayers").addEventListener("click", function(){
+let oldPosition =0
+let newPosition =0
+
+let rollTheDice= () => {
+    return diceNumber = Math.round(Math.random()*5)+1;
+}
+
+/*create new players*/
+document.getElementById("selectPlayers").addEventListener("click", function(){
     switch (document.getElementById("player-number").value) {
         case document.getElementById("player-number").value:
             for (i = 0; i < document.getElementById("player-number").value; i++) {
@@ -71,5 +62,22 @@ const players = [
     });
 
 
+
+
+    
+/*MAKE THIS WORK WITH THE NEW OBJECT. LOGIC TO CHANGE THE DICE THROUGH PLAYER.*/
+/*still doing*/
+document.getElementById("button").addEventListener("click", function(){
+    oldPosition = newPosition;
+    newPosition=newPosition+rollTheDice();
+    document.getElementById(boardArray[newPosition]).appendChild(document.getElementById("player-one"));
+    document.getElementById(boardArray[oldPosition]).removeChild(document.getElementById("player-one"));
+    });
+
+
+
+
+
+/*i need a "when you finish the array you won"function*/
 
     /*i need a start again button when everything ends, and i need div id="init" to be shown again*/
