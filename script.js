@@ -1,9 +1,7 @@
-/*when movePlayer() works do newPosition=newPosition+rollTheDice (create return)
-
 rollTheDice= () => {
-    let diceNumber = Math.round(Math.random()*5)+1
-    console.log(diceNumber);
-}*/
+    return diceNumber = Math.round(Math.random()*5)+1;
+}
+
 let boardArray = [
     "box-1",
     "box-2",
@@ -19,9 +17,9 @@ let boardArray = [
 let oldPosition =0
 let newPosition =0
 
-document.getElementById("button").addEventListener("click", function movePlayer() {
+document.getElementById("button").addEventListener("click", function(){
     oldPosition = newPosition;
-    newPosition++;
+    newPosition=newPosition+rollTheDice();
+    document.getElementById(boardArray[newPosition]).appendChild(document.getElementById("player-one"));
     document.getElementById(boardArray[oldPosition]).removeChild(document.getElementById("player-one"));
-    document.getElementById(boardArray[newPosition]).appendChild(/*what to write*/);
-  });
+    });
