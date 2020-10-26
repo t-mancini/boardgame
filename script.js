@@ -50,6 +50,21 @@ document.getElementById("selectPlayers").addEventListener("click", function(){
     switch (document.getElementById("player-number").value) {
         case document.getElementById("player-number").value:
             for (i = 0; i < document.getElementById("player-number").value; i++) {
+                 child= document.createElement("div",{"style":backgroundColor=players[i].color});
+                child.setAttribute("id",players[i].id,)
+                child.setAttribute("class",players[i].class,)
+                child.setAttribute("style", "background-color", players[i].color);
+                document.getElementById(boardArray[0]).appendChild(child);
+            }
+            document.getElementById("init").style.display = 'none';
+        break;
+    }
+    });
+/*copy for when i mess everything up*/
+/*     document.getElementById("selectPlayers").addEventListener("click", function(){
+    switch (document.getElementById("player-number").value) {
+        case document.getElementById("player-number").value:
+            for (i = 0; i < document.getElementById("player-number").value; i++) {
                 playerOne = document.createElement("DIV");
                 playerOne.setAttribute("id", players[i].id);
                 playerOne.setAttribute("class", players[i].class);
@@ -59,7 +74,7 @@ document.getElementById("selectPlayers").addEventListener("click", function(){
             document.getElementById("init").style.display = 'none';
         break;
     }
-    });
+    }); */
 
 
 
