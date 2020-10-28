@@ -85,10 +85,12 @@ document.getElementById("button").addEventListener("click", function(){
     /*if win this happens*/
     if(players[j].position+increment>boardArray.length){
         /*you won alert+button*/
+
         document.getElementById("finish").style.display = "block"
         document.getElementById("button").style.display = "none"
         document.getElementById("finish").innerHTML=`<p id="winningPlayer">${players[j].name} won!</p>
         <button type="button" id="restart">Start again</button>`
+        document.getElementById(boardArray[boardArray.length-1]).appendChild(document.getElementById(players[j].id));
         /*make game restart=page reload*/
     document.getElementById("restart").addEventListener("click", function(){
         window.location.href = window.location.href;
@@ -99,6 +101,7 @@ document.getElementById("button").addEventListener("click", function(){
     document.getElementById(boardArray[players[j].position+increment]).appendChild(document.getElementById(players[j].id));
     players[j].position=players[j].position+increment;
     /*not fully working here. i need to put it back to arr[0]*/
+    if(j==i-1){j=-1}
     document.getElementById("whoIsPlaying").innerHTML=`<p>${players[j+1].name}, your turn</p>`
     j++  
 }});
@@ -106,8 +109,10 @@ document.getElementById("button").addEventListener("click", function(){
 ;
 
 /*TO DO:
--show me "player 1 is playing"
-
+/*fully working, lets make it cuter!!*/
+/*FIRST, CLEAN THIS STUPID JAVASCRIPT. MY EYES ARE BLEEDING*/
+/*when someone wins i want him to append to last array index*/
+/*
 -see the dice
 -keyframe animation to append when player moves
 -want arrays outside
