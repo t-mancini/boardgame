@@ -15,79 +15,62 @@ let players = [
     {
         id: "player-one",
         class: "player",
-        oldPosition: 0,
-        newPosition:0,
+        position:0,
         color:"red"},
     {
         id: "player-two",
         class: "player",
-        oldPosition: 0,
-        newPosition:0,
+        position:0,
         color:"blue"},
     {
         id: "player-three",
         class: "player",
-        oldPosition: 0,
-        newPosition:0,
+        position:0,
         color:"green",},
     {
         id: "player-four",
         class: "player",
-        oldPosition: 0,
-        newPosition:0,
+        position:0,
         color:"yellow"}
     ]
-
-let oldPosition =0
-let newPosition =0
 
 let rollTheDice= () => {
     return diceNumber = Math.round(Math.random()*5)+1;
 }
-
 /*create new players*/
 document.getElementById("selectPlayers").addEventListener("click", function(){
     switch (document.getElementById("player-number").value) {
         case document.getElementById("player-number").value:
+            let createPlayer = ``
             for (i = 0; i < document.getElementById("player-number").value; i++) {
-                 child= document.createElement("div",{"style":backgroundColor=players[i].color});
-                child.setAttribute("id",players[i].id,)
-                child.setAttribute("class",players[i].class,)
-                child.setAttribute("style", "background-color", players[i].color);
-                document.getElementById(boardArray[0]).appendChild(child);
-            }
+                 createPlayer += `<div id="${players[i].id}" class="${players[i].class}" style="background-color:${players[i].color}"></div>`
+                document.getElementById(boardArray[0]).innerHTML=createPlayer
+            } 
             document.getElementById("init").style.display = 'none';
         break;
     }
     });
-/*copy for when i mess everything up*/
-/*     document.getElementById("selectPlayers").addEventListener("click", function(){
-    switch (document.getElementById("player-number").value) {
-        case document.getElementById("player-number").value:
-            for (i = 0; i < document.getElementById("player-number").value; i++) {
-                playerOne = document.createElement("DIV");
-                playerOne.setAttribute("id", players[i].id);
-                playerOne.setAttribute("class", players[i].class);
-                document.getElementById(boardArray[0]).appendChild(playerOne);
-                document.getElementById(players[i].id).style.backgroundColor = players[i].color 
-            }
-            document.getElementById("init").style.display = 'none';
-        break;
-    }
-    }); */
 
-
-
-
-    
-/*MAKE THIS WORK WITH THE NEW OBJECT. LOGIC TO CHANGE THE DICE THROUGH PLAYER.*/
-/*still doing*/
+/*move players*/
 document.getElementById("button").addEventListener("click", function(){
-    oldPosition = newPosition;
-    newPosition=newPosition+rollTheDice();
-    document.getElementById(boardArray[newPosition]).appendChild(document.getElementById("player-one"));
-    document.getElementById(boardArray[oldPosition]).removeChild(document.getElementById("player-one"));
-    });
+    for (let i = 0; i <= players.length; i++) {
+        if(i=players.length){
+            i=0
+        }
+        document.getElementById(boardArray[players[i].position]).removeChild(document.getElementById(players[i].id));
+        players[i].position=players[i].position+rollTheDice();
+        document.getElementById(boardArray[players[i].position]).appendChild(document.getElementById(players[i].id));
+            }
+    }
+);
+
+/* backup. create oldposition and newposition inside objects. let both =0 */
+    /* document.getElementById("button").addEventListener("click", function(){
+        oldPosition = newPosition;
+        newPosition=newPosition+rollTheDice();
+        document.getElementById(boardArray[newPosition]).appendChild(document.getElementById("player-one"));
+        document.getElementById(boardArray[oldPosition]).removeChild(document.getElementById("player-one"));
+        }); */
 
 
 
