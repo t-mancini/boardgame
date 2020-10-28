@@ -48,14 +48,20 @@ document.getElementById("selectPlayers").addEventListener("click", function(){
     });
 
 /*move players*/    /*ERROR:players length gives me 4 and not the spawned players*/
+let j=0
 document.getElementById("button").addEventListener("click", function(){
     const increment = Math.round(Math.random()*5)+1;
-        for(i=0; i<=players.length; i++){
-        document.getElementById(boardArray[players[i].position+increment]).appendChild(document.getElementById(players[i].id));
-        players[i].position=players[i].position+increment;
-        }
+    if(j==i){j=0}
+    document.getElementById(boardArray[players[j].position+increment]).appendChild(document.getElementById(players[j].id));
+    players[j].position=players[j].position+increment;
+    j++
     }    
 );
+
+/* for(i=0; i<=players.length; i++){
+    document.getElementById(boardArray[players[i].position+increment]).appendChild(document.getElementById(players[i].id));
+    players[i].position=players[i].position+increment;
+    } */
 
 /* document.getElementById("button").addEventListener("click", function(){
     const increment = rollTheDice()
