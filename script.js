@@ -33,10 +33,6 @@ let players = [
         position:0,
         color:"yellow"}
     ]
-
-let rollTheDice= () => {
-    return diceNumber = Math.round(Math.random()*5)+1;
-}
 /*create new players*/
 document.getElementById("selectPlayers").addEventListener("click", function(){
     switch (document.getElementById("player-number").value) {
@@ -53,25 +49,20 @@ document.getElementById("selectPlayers").addEventListener("click", function(){
 
 /*move players*/
 document.getElementById("button").addEventListener("click", function(){
-    for (let i = 0; i <= players.length; i++) {
-        if(i=players.length){
-            i=0
-        }
-        document.getElementById(boardArray[players[i].position]).removeChild(document.getElementById(players[i].id));
-        players[i].position=players[i].position+rollTheDice();
-        document.getElementById(boardArray[players[i].position]).appendChild(document.getElementById(players[i].id));
-            }
+    const increment = Math.round(Math.random()*5)+1
+    document.getElementById(boardArray[players[0].position+increment]).appendChild(document.getElementById(players[0].id));
+    players[0].position=players[0].position+increment;
     }
+        
 );
 
-/* backup. create oldposition and newposition inside objects. let both =0 */
-    /* document.getElementById("button").addEventListener("click", function(){
-        oldPosition = newPosition;
-        newPosition=newPosition+rollTheDice();
-        document.getElementById(boardArray[newPosition]).appendChild(document.getElementById("player-one"));
-        document.getElementById(boardArray[oldPosition]).removeChild(document.getElementById("player-one"));
-        }); */
-
+/* document.getElementById("button").addEventListener("click", function(){
+    const increment = rollTheDice()
+    document.getElementById(boardArray[players[0].position+increment]).appendChild(document.getElementById(players[0].id));
+    players[0].position=players[0].position+increment;
+    }
+        
+); */
 
 
 
