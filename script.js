@@ -14,38 +14,65 @@ let boardArray = [
 let players = [
     {
         id: "player-one",
+        idName: "p1",
+        name: "",
         class: "player",
         position:0,
         color:"red"},
     {
         id: "player-two",
+        idName: "p2",
+        name: "",
         class: "player",
         position:0,
         color:"blue"},
     {
         id: "player-three",
+        idName: "p3",
+        name: "",
         class: "player",
         position:0,
         color:"green",},
     {
         id: "player-four",
+        idName: "p4",
+        name: "",
         class: "player",
         position:0,
         color:"yellow"}
     ]
-/*create new players*/
+/*create new players*/ /*hides initialize, show nameChoiceForm*/
 document.getElementById("selectPlayers").addEventListener("click", function(){
     switch (document.getElementById("player-number").value) {
         case document.getElementById("player-number").value:
+            document.getElementById("init").style.display = 'none';
+            document.getElementById("setName").style.display = 'block';
             let createPlayer = ``
+            let createForm =``
             for (i = 0; i < document.getElementById("player-number").value; i++) {
                  createPlayer += `<div id="${players[i].id}" class="${players[i].class}" style="background-color:${players[i].color}"></div>`
+                 createForm += `<form>
+                 <label for="${players[i].idName}">Player ${i+1}:</label><br>
+                 <input type="text" id="${players[i].idName}" name="${players[i].idName}"><br>
+             </form>`
                 document.getElementById(boardArray[0]).innerHTML=createPlayer
-            } 
-            document.getElementById("init").style.display = 'none';
+                document.getElementById("nameChoice").innerHTML=createForm
+            }
         break;
     }
     });
+
+    /*save the names inside the object*/
+    /*hides give me your name*/
+    /*show move players button*/
+document.getElementById("setName").addEventListener("click", function(){
+    document.getElementById("setName").style.display = 'none';
+    document.getElementById("nameChoice").style.display = 'none';
+    document.getElementById("button").style.display = 'block';
+    for (i = 0; i < document.getElementById("player-number").value; i++) {
+        players[i].name=document.getElementById(players[i].idName).value
+    }
+});
 
 /*move players*/
 let j=0
@@ -57,7 +84,7 @@ document.getElementById("button").addEventListener("click", function(){
         /*you won alert+button*/
         document.getElementById("finish").style.display = "block"
         document.getElementById("button").style.display = "none"
-        document.getElementById("finish").innerHTML=`<p id="winningPlayer">Player ${players[j].id} won!</p>
+        document.getElementById("finish").innerHTML=`<p id="winningPlayer">${players[j].name} won!</p>
         <button type="button" id="restart">Start again</button>`
     }
     /*if not win this happens*/
@@ -74,9 +101,9 @@ document.getElementById("button").addEventListener("click", function(){
 
 /*TO DO:
 -show me "player 1 is playing"
+
 -see the dice
 -keyframe animation to append when player moves
--give name to player, message when someone finish
 -want arrays outside
--extra array for event cards (?)
+-cards
 */
