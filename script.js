@@ -65,13 +65,16 @@ document.getElementById("selectPlayers").addEventListener("click", function(){
     /*save the names inside the object*/
     /*hides give me your name*/
     /*show move players button*/
+    /*initialize player1 is playing text*/
 document.getElementById("setName").addEventListener("click", function(){
     document.getElementById("setName").style.display = 'none';
     document.getElementById("nameChoice").style.display = 'none';
     document.getElementById("button").style.display = 'block';
+    document.getElementById("whoIsPlaying").style.display = 'block';
     for (i = 0; i < document.getElementById("player-number").value; i++) {
         players[i].name=document.getElementById(players[i].idName).value
     }
+    document.getElementById("whoIsPlaying").innerHTML=`<p>${players[0].name}, your turn</p>`
 });
 
 /*move players*/
@@ -86,18 +89,21 @@ document.getElementById("button").addEventListener("click", function(){
         document.getElementById("button").style.display = "none"
         document.getElementById("finish").innerHTML=`<p id="winningPlayer">${players[j].name} won!</p>
         <button type="button" id="restart">Start again</button>`
+        /*make game restart=page reload*/
+    document.getElementById("restart").addEventListener("click", function(){
+        window.location.href = window.location.href;
+    })
     }
     /*if not win this happens*/
     else{
     document.getElementById(boardArray[players[j].position+increment]).appendChild(document.getElementById(players[j].id));
     players[j].position=players[j].position+increment;
-    j++}
-    /*make game restart=page reload*/
-    document.getElementById("restart").addEventListener("click", function(){
-        window.location.href = window.location.href;
-    });
-  }  
-);
+    /*not fully working here. i need to put it back to arr[0]*/
+    document.getElementById("whoIsPlaying").innerHTML=`<p>${players[j+1].name}, your turn</p>`
+    j++  
+}});
+
+;
 
 /*TO DO:
 -show me "player 1 is playing"
