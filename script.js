@@ -47,13 +47,14 @@ document.getElementById("selectPlayers").addEventListener("click", function(){
     }
     });
 
-/*move players*/
+/*move players*/    /*ERROR:players length gives me 4 and not the spawned players*/
 document.getElementById("button").addEventListener("click", function(){
-    const increment = Math.round(Math.random()*5)+1
-    document.getElementById(boardArray[players[0].position+increment]).appendChild(document.getElementById(players[0].id));
-    players[0].position=players[0].position+increment;
-    }
-        
+    const increment = Math.round(Math.random()*5)+1;
+        for(i=0; i<=players.length; i++){
+        document.getElementById(boardArray[players[i].position+increment]).appendChild(document.getElementById(players[i].id));
+        players[i].position=players[i].position+increment;
+        }
+    }    
 );
 
 /* document.getElementById("button").addEventListener("click", function(){
