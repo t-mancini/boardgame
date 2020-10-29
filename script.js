@@ -112,6 +112,10 @@ I am not a big fan of switch cases :sweat_smile:
 Don’t name a variable just j
 Do not get super used to reload the webpage, it is tricky because later when doing more complex stuff, you will have more data in your webpage and if you do a reload, you are losing everything. What you could do is just reset all the variables to their initial values */
 
+/* other stuff to do by marc */
+/* about the j variable, you were not using it in a loop, as far as I remember it was just a counter that you use to control when the user clicks on a button and at the end you increment that value, so I would just rename it as counter
+And the rest was looking good already, so take your time :slightly_smiling_face: */
+
 /*TO DO:
 /*fully working, lets make it cuter!!*/
 /*FIRST, CLEAN THIS STUPID JAVASCRIPT. MY EYES ARE BLEEDING*/
