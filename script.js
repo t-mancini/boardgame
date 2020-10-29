@@ -73,7 +73,7 @@ document.getElementById("setName").addEventListener("click", function(){
     for (i = 0; i < document.getElementById("player-number").value; i++) {
         players[i].name=document.getElementById(players[i].idName).value
     }
-    document.getElementById("whoIsPlaying").innerHTML=`<p>${players[0].name}, your turn</p>`
+    document.getElementById("whoIsPlaying").innerHTML=`<p>${players[0].name}, your turn</p>`})
 
 /*move players*/
 let j=0
