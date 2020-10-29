@@ -41,7 +41,7 @@ document.getElementById("setName").addEventListener("click", function(){
         document.getElementsByTagName("input")[i].id=keyNumber[i]
         keyName.push(document.getElementById(keyNumber[i]).value)
         /*i dont need the players array anymore, have all the data stored??*/
-        player = {"number":keyNumber[i],"id":keyId[i],"name":keyName[i],"class":"player","position":0,"color":keyColor}
+        player = {"number":keyNumber[i],"id":keyId[i],"name":keyName[i],"class":"player","position":0,"color":keyColor[i]}
         players.push(player)
         createPlayer += `<div id="${keyId[i]}" class="player" style="background-color:${keyColor[i]}"></div>`
     }
@@ -53,17 +53,3 @@ document.getElementById("setName").addEventListener("click", function(){
     document.getElementById("whoIsPlaying").style.display = 'block';
     document.getElementById("whoIsPlaying").innerHTML=`<p>${keyName[0]}, your turn</p>`
 })
-/*move*/
-let i=0
-document.getElementById("button").addEventListener("click", function(){
-    let increment = Math.round(Math.random()*5)+1;
-    if(i==keyNumber.length){i=0}
-    document.getElementById(boardArray[players[i].position+increment]).appendChild(document.getElementById(players[i].id));
-    players[i].position=players[i].position+increment;
-    i++
-})
-    /*not fully working here. i need to put it back to arr[0]*/
-    /* if(j==i-1){j=-1}
-    document.getElementById("whoIsPlaying").innerHTML=`<p>${players[j+1].name}, your turn</p>` */
-    /* i++  } */
-/* }}) */
