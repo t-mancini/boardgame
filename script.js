@@ -61,7 +61,6 @@ document.getElementById("selectPlayers").addEventListener("click", function(){
         break;
     }
     });
-
     /*save the names inside the object*/
     /*hides give me your name*/
     /*show move players button*/
@@ -75,7 +74,6 @@ document.getElementById("setName").addEventListener("click", function(){
         players[i].name=document.getElementById(players[i].idName).value
     }
     document.getElementById("whoIsPlaying").innerHTML=`<p>${players[0].name}, your turn</p>`
-});
 
 /*move players*/
 let j=0
@@ -107,6 +105,12 @@ document.getElementById("button").addEventListener("click", function(){
 }});
 
 ;
+
+/* stuff to change, by marc */
+/* I would create the players array dinamicaly, meaning that I will not hardcode 4 players, instead I will create as many players as I select
+I am not a big fan of switch cases :sweat_smile:
+Don’t name a variable just j
+Do not get super used to reload the webpage, it is tricky because later when doing more complex stuff, you will have more data in your webpage and if you do a reload, you are losing everything. What you could do is just reset all the variables to their initial values */
 
 /*TO DO:
 /*fully working, lets make it cuter!!*/
