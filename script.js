@@ -104,7 +104,7 @@ document.getElementById("button").addEventListener("click", function(){
     j++  
 }});
 
-;
+
 
 /* stuff to change, by marc */
 /* I would create the players array dinamicaly, meaning that I will not hardcode 4 players, instead I will create as many players as I select
