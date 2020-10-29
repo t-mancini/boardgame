@@ -41,7 +41,8 @@ document.getElementById("setName").addEventListener("click", function(){
         document.getElementsByTagName("input")[i].id=keyNumber[i]
         keyName.push(document.getElementById(keyNumber[i]).value)
         /*i dont need the players array anymore, have all the data stored??*/
-        players.push( `{id: ${keyId[i]}, name: ${keyName[i]}, class: "player", position: 0, color:${keyColor[i]}}`)
+        player = {"number":keyNumber[i],"id":keyId[i],"name":keyName[i],"class":"player","position":0,"color":keyColor}
+        players.push(player)
         createPlayer += `<div id="${keyId[i]}" class="player" style="background-color:${keyColor[i]}"></div>`
     }
     /*delete some stuff and show some stuff*/
@@ -55,28 +56,14 @@ document.getElementById("setName").addEventListener("click", function(){
 /*move*/
 let i=0
 document.getElementById("button").addEventListener("click", function(){
-    const increment = Math.round(Math.random()*5)+1;
+    let increment = Math.round(Math.random()*5)+1;
     if(i==keyNumber.length){i=0}
-    /*if win this happens*/
-    /* if(players[i].position+increment>boardArray.length){ */
-        /*you won alert+button*/
-
-        /* document.getElementById("finish").style.display = "block"
-        document.getElementById("button").style.display = "none"
-        document.getElementById("finish").innerHTML=`<p id="winningPlayer">${players[j].name} won!</p>
-        <button type="button" id="restart">Start again</button>`
-        document.getElementById(boardArray[boardArray.length-1]).appendChild(document.getElementById(players[j].id)); */
-        /*make game restart=page reload*/
-    /* document.getElementById("restart").addEventListener("click", function(){
-        window.location.href = window.location.href; */
-    })
-    /* } */
-    /*if not win this happens*/
-   /*  else{ */
     document.getElementById(boardArray[players[i].position+increment]).appendChild(document.getElementById(players[i].id));
     players[i].position=players[i].position+increment;
+    i++
+})
     /*not fully working here. i need to put it back to arr[0]*/
     /* if(j==i-1){j=-1}
     document.getElementById("whoIsPlaying").innerHTML=`<p>${players[j+1].name}, your turn</p>` */
-    i++  
-/* }}) */;
+    /* i++  } */
+/* }}) */
