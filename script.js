@@ -74,7 +74,6 @@ document.getElementById("button").addEventListener("click", function(){
     else{
     document.getElementById(boardArray[players[i].position+increment]).appendChild(document.getElementById(players[i].id));
     players[i].position=players[i].position+increment;
-    /*not fully working here. i need to put it back to arr[0]*/
     if(i==players.length-1){i=-1}
     document.getElementById("whoIsPlaying").innerHTML=`<p>${players[i+1].name}, your turn</p>`
     i++  
@@ -84,12 +83,3 @@ document.getElementById("button").addEventListener("click", function(){
 /* stuff to do */
 /* Do not get super used to reload the webpage, */
 /*when someone wins i want him to append to last array index*/
-
-
-/* extra */
-/*
--see the dice
--keyframe animation to append when player moves
--want arrays outside
--cards
-*/
